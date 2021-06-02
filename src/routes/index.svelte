@@ -1,2 +1,21 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+  import SearchBox from "$lib/SearchBox/index.svelte";
+  import Facet from "$lib/Facet/index.svelte";
+  import ResultList from "$lib/ResultList/index.svelte";
+  import { Col, Container, Row } from 'sveltestrap';
+</script>
+
+<svelte:head>
+  <title>Coveo Headless + Svelte</title>
+</svelte:head>
+
+<Row>
+  <Col xs="3">
+    <Facet title="Object type" field="objecttype"/>
+    <Facet title="Author" field="author"/>
+  </Col>
+  <Col>
+    <SearchBox searchAsYouTypeDelay={0}/>
+    <ResultList />
+  </Col>
+</Row>
